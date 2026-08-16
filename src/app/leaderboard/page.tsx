@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Flame, Trophy } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { getOrCreateUser } from "@/lib/storage";
-import type { UserStats, LeaderboardEntry } from "@/types/user";
+import type { LeaderboardEntry } from "@/types/user";
 
 const DEMO: LeaderboardEntry[] = [
   { rank: 1, username: "asyncWizard", xp: 12840, streak: 14, bugsSolved: 89 },
@@ -17,12 +17,10 @@ const DEMO: LeaderboardEntry[] = [
 ];
 
 export default function LeaderboardPage() {
-  const [user, setUser] = useState<UserStats | null>(null);
   const [entries, setEntries] = useState<LeaderboardEntry[]>(DEMO);
 
   useEffect(() => {
     const u = getOrCreateUser();
-    setUser(u);
     const merged = [...DEMO];
     const existing = merged.findIndex((e) => e.username === u.username);
     if (existing >= 0) {
