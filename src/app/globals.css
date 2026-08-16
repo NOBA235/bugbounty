@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0a0a0b;
+  --foreground: #e4e4e7;
+}
+
+body {
+  background: #0a0a0b;
+  color: #e4e4e7;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 4px; }
+
+.timer-urgent { animation: urgency-pulse 1s ease-in-out infinite; color: #ef4444; }
+@keyframes urgency-pulse { 0%,100%{opacity:1} 50%{opacity:0.7} }
